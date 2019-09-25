@@ -1,13 +1,13 @@
 {
-  "name": "open-joblist",
+  "name": "continuous-test-code-coverage-guide",
   "version": "1.0.0",
   "description": "Yet another React Tutorial.",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/jest",
+    "test": "jest --coverage --coverageDirectory=output/coverage/jest",
     "build": "./node_modules/.bin/webpack",
     "watch:server": "./node_modules/.bin/nodemon -e ts,tsx,js --watch src index.js",
-    "start": "node index.js"
+    "start": "webpack"
   },
   "jest": {
     "setupFiles": [
@@ -24,6 +24,10 @@
     },
     "testMatch": [
       "**/__tests__/*.(ts|tsx|js)"
+    ],
+    "coverageReporters": [
+      "text",
+      "cobertura"
     ]
   },
   "repository": {
